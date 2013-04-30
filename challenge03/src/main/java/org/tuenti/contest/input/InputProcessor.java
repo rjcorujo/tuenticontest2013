@@ -14,8 +14,6 @@ public class InputProcessor {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
         try {
-
-
             int numScripts = Integer.parseInt(bf.readLine().trim());
             List<TestCase> cases = new ArrayList<TestCase>();
             for (int i = 0; i < numScripts; i++) {
@@ -29,7 +27,6 @@ public class InputProcessor {
     }
 
     private static TestCase buildScriptTestCase(String scripts) {
-        boolean found = true;
         String rest = scripts;
         TestCase testCase = new TestCase();
         while(rest.length() > 0) {
