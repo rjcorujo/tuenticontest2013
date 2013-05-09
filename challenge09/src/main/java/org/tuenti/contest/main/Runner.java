@@ -1,9 +1,8 @@
 package org.tuenti.contest.main;
 
-import org.tuenti.contest.input.Boozzle;
 import org.tuenti.contest.input.InputProcessor;
-import org.tuenti.contest.solver.BoozzleSolver;
-import org.tuenti.contest.solver.Dictionary;
+import org.tuenti.contest.input.WarScenario;
+import org.tuenti.contest.solver.WarSolver;
 
 import java.util.List;
 
@@ -13,17 +12,12 @@ import java.util.List;
 public class Runner {
 
     public static void main(String[] args) {
-        Dictionary dictionary = new Dictionary("boozzle-dict.txt");
-
-        List<Boozzle> inputs = InputProcessor.processInput();
+        List<WarScenario> inputs = InputProcessor.processInput();
 
 
-        BoozzleSolver solver = new BoozzleSolver(dictionary);
-        for (Boozzle game : inputs) {
-            System.out.println(solver.resolve(game));
+        WarSolver solver = new WarSolver();
+        for (WarScenario war : inputs) {
+            System.out.println(solver.fight(war));
         }
-
-        dictionary.close();
-
     }
 }

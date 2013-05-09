@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -12,18 +13,17 @@ import java.util.List;
  */
 public class InputProcessor {
 
-    public static List<String> processInput() {
+    public static List<List<String>> processInput() {
         BufferedReader bf = null;
 
         try {
             bf = new BufferedReader(new InputStreamReader(System.in,"UTF-8"));
-            String line = bf.readLine();
-            List<String> inputs = new ArrayList<String>();
-            while (line != null) {
-                inputs.add(line.trim());
-                line = bf.readLine();
+            int numTests =  Integer.parseInt(bf.readLine().trim());
+            List<List<String>> inputs = new ArrayList<List<String>>();
+            for (int i = 0; i < numTests; i++) {
+                List<String> list = Arrays.asList(bf.readLine().trim().split("\\s+"));
+                inputs.add(list);
             }
-
             return inputs;
         } catch (Exception e) {
             throw new RuntimeException("Error processing input",e);
